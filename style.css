@@ -411,7 +411,7 @@ h1 span{
     text-align: center;
    }
 }
-@media (max-width:768px){
+@media (max-width:308px){
    html{
     font-size:50%;
    }
@@ -419,7 +419,7 @@ h1 span{
     text-align: center;
    }
  }
-@media (max-width:400px){
+@media (max-width:500px){
     body{
         border:5px solid #fff;
         margin: 10px;
