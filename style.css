@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Poppins:ital,wght@0,400;1,500&family=Roboto&display=swap');
 :root{
-    /*--yellow:rgb(211, 122, 6);*/
+    --yelow:rgb(211, 122, 6);
     --yellow:rgb(9, 157, 177);
+    --green:#24960d;
 }
 *{
     font-family:'Nunito',sans-serif;
@@ -39,14 +40,16 @@ body{
     padding-left:35rem;
 }
 section{
-    min-height:100vh;
+    min-height: 100vh;
     padding:1rem;
 }
+
 .btn{
     width: 25rem;
     padding:.7rem 3rem;
-    background:#333;
+    background:var(--green);
     color:#fff;
+    font-weight: 600;
     cursor: pointer;
     margin-top:1rem;
     font-size:2rem;
@@ -56,8 +59,9 @@ section{
     padding:0 0.5rem;
     font-size:1.8rem;
 }
-.btn:hover{
-    background: var(--yellow);
+.btn:active{
+    background: rgb(211, 211, 11);
+    transition: none;
 }
 .links{
     display: flex;
@@ -75,7 +79,10 @@ section{
     border-radius: 50%;
 }
 .links li i:hover{
-    background-color: var(--yellow);
+    background-color:var(--green);
+}
+.links li i:active{
+    background-color:rgb(197, 197, 11);
 }
 .heading{
     text-align: center;
@@ -110,7 +117,7 @@ header .user img{
 }
 header .user .name{
     font-size:3.5rem;
-    color:#eee;
+    color:rgb(233, 137, 12);
 }
 header .user .post{
     font-size:2.2rem;
@@ -136,6 +143,9 @@ header .navbar ul li a{
 header .navbar ul li a:hover{
     background-color: var(--yellow);
 }
+header .navbar ul li a:active{
+    background-color: rgb(199, 199, 9);
+}
 #menu{
     position: fixed;
     top:2rem;
@@ -152,13 +162,34 @@ h1 span{
     color: var(--yellow);
 }
 
+
+.home-img-container{
+    width:210px;
+    height:210px;
+    border-radius: 50%;
+    display: none;
+}
+.home-img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border:5px solid gold;
+}
+
 .home{
     display: flex;
     justify-content: center;
-    flex-flow:column;
-    padding:0 15rem;
+    align-items: center;
+    flex-direction: column;
 }
-.home h3{
+.home .home1{
+    display: flex;
+    justify-content: center;
+    flex-flow:column;
+    padding: 0 15rem;
+}
+.home .home1 h3{
     font-size:2.5rem;
     color:#fff;
 }
@@ -166,24 +197,27 @@ h1 span{
     font-size:5rem;
     color:#fff;
 }
-.home p{
+.home .home1 p{
     font-size:2rem;
     color:#eee;
+    text-transform: none;
+    text-overflow: clip;
     padding:1rem 0;
 }
 
-.home .row{
+.home .home1 .row{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 }
-.home .buttons{
+.home .home1 .buttons{
     padding-top:3rem;
 }
-.home .buttons a{
+.home .home1 .buttons a{
     padding-right: 20px;
 }
+
 
 .about .row .info {
     padding:4rem 5rem;
@@ -227,70 +261,69 @@ h1 span{
 }
 
 .about .skills .row li :hover{
-    transition: .1s ease-in;
-    background: #fff;
     border-radius: 1.2rem;
+    transition: none;
+    background: #fff;
+    
  }
 
 
+ /* ---------------------------------------projects------------------------------*/
 
  .projects .row{
+    padding:4rem 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px ,auto));
-    padding:6rem;
-  
- }
+    grid-template-columns: repeat(auto-fit,minmax(150px,450px));
+    gap:3rem
+}
  .projects .row .box {
-    width: 340px;
-    height: 220px;
-    position: relative;
-    border-radius: 2rem;
-    background-color: #333;
+    padding-top:20px;
+    border-radius: 2rem; 
+    background-color:#1d1c1c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
  }
  .projects .row .box img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 2rem;
+    width:90%;
+    height:90%;
+    object-fit: contain;
+    align-content: center;
+    padding-bottom: 10px;
  }
- .projects .row .box .list .pro-head{
+ .projects .row .list{
+    width:80%;
+    padding-bottom: 10px;
+ }
+ .projects .row .list .pro-head{
     font-size: 3rem;
     text-align: center;
-    color:#fff;
+    color:rgb(168, 8, 88);
+    padding:5px;
+    border-radius: 1rem;
  }
-.projects .row .box .list .pro-details{
+.projects .row .list .pro-details{
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    position: absolute;
-    bottom:2rem;
-    left:4rem;
+    padding:10px;
 }
-.projects .row .box .list .pro-details li{
+.projects .row .list .pro-details li{
     color:#fff;
-    font-size: 1.2rem;
-    margin: 0 4px;
-    padding:3.5px 5px;
+    font-size: 1.5rem;
+    padding:4px 10px;
     list-style: none;
-    background-color: rgb(206, 42, 42);
+    background-color: rgb(10, 63, 131);
     border-radius: 2rem;
 }
-.projects .row .box .list .view{
-  
-    position: absolute;
-    bottom:7.5px;
-    right:0;
-    list-style: none;
+.link{
+    background-color: #beb206;
+    font-size: 2rem;
+    border-radius: 2rem;
+    padding:3px 5px;
+    color:#eee;
 }
-.projects .row .box .list .view a{
-    text-decoration: none;
-    border-radius: 50%;
-    padding: 8px 8px;
-    text-transform: lowercase;
-    background-color: rgb(6, 70, 38);
-    font-size: 3rem;
-    color:#fff;
-}
-
 
 /* -------------------------------------coding profile    ===========> start <============ --------------*/
 
@@ -302,23 +335,31 @@ h1 span{
     margin-top:10rem;
 }
 .coding_profile .profile li{
-    flex:1 1 30rem;
+    flex:1 1 25rem;
     list-style: none;
     border-radius: 5rem;
-    padding:1rem 0.7rem;
+    padding:1rem .4rem;
     margin: 2rem;
     background: #444;
+    text-align: center;
 }
 .coding_profile .profile li a{
     text-decoration: none;
+    font-weight: 550;
 }
 .coding_profile .profile li a span{
-    color:#fff;
+   color:#fff;
+}
+.coding_profile .profile li:hover {
+    background: var(--green);
+}
+.coding_profile .profile li:active{
+    background-color: rgb(212, 212, 9);
+    transition: none;
 }
 
-.coding_profile .profile li:hover {
-    background: var(--yellow);
-}
+
+
 
 .contact .row{
     display:flex;
@@ -374,8 +415,15 @@ h1 span{
     padding:.8rem 1rem;
     color:#fff;
 }
-.contact .row form .btn:hover{
-    background: var(--yellow);
+.contact .row .form a {
+    text-decoration: none;
+    color:#fff;
+}
+.contact .row form .btn a:hover{
+    background: var(--green);
+}
+.contact .row .form .btn a:active{
+    background: rgb(199, 199, 8);
 }
 .contact .row .content .info i{
     color:var(--yellow);
@@ -401,6 +449,9 @@ h1 span{
    #menu{
      display: block;
    }
+   .home .home1 {
+    padding:4rem;
+   }
    header.toggle{
      left:0%;
    }
@@ -421,16 +472,31 @@ h1 span{
  }
 @media (max-width:500px){
     body{
-        border:5px solid #fff;
-        margin: 10px;
+        border:5px groove white;
+        margin: 8px;
+        font-size: 50%;
+    }
+    .home .home-img-container{
+        margin-top: 50px;
+        margin-bottom: 20px;
+        display: block;
+    }
+    .home .home1{
+        padding:2rem;
+    }
+    .home .home1 h1{
+        font-size: 4.5rem;
+    }
+    .home .home1 p,h3{
+        font-size: 2rem;
     }
     header{
         width:100vw;
-        border:5px solid #fa920a;
+        border:5px solid grey;
         padding:20px;
     }
     .about p{
-        line-height: 3.5rem;
+        line-height: 3rem;
         letter-spacing: none;
     }
     .heading{
@@ -442,6 +508,7 @@ h1 span{
     .education .box-container .box {
         width:100%;
     }
+    
     .buttons{
         text-align: center;
     }
